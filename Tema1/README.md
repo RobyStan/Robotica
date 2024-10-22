@@ -25,6 +25,6 @@ Scopul acestei lucrari este de a simula o statie de incarcare pentru un vehicul 
 
 ## Poze ale setup-ului fizic
 
-![Poza1](poze/poza_setup1.png)
+![Poza1](poze/poza_setup1.jpg)
 
-![Poza2](poze/poza_setup2.png)
+![Poza2](poze/poza_setup2.jpg)
