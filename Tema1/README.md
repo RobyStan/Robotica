@@ -25,13 +25,14 @@ Scopul acestei lucrari este de a simula o statie de incarcare pentru un vehicul 
 
 ## Poze ale setup-ului fizic
 
-<img src="resurse/poze/poza_setup1.jpg" alt="Poza1" width="400"/>
+<img src="resurse/poze/poza_setup1.jpg" alt="Poza1" width="500"/>
 
-<img src="resurse/poze/poza_setup2.jpg" alt="Poza2" width="400"/>
+<img src="resurse/poze/poza_setup2.jpg" alt="Poza2" width="500"/>
 
 ## Schema electrica
 
-<img src="resurse/poze/schema_electrica.png" alt="Schema-electrica" width="800"/>
+<img src="resurse/poze/schema.png" alt="Schema-electrica" width="500"/>
+<img src="resurse/poze/schema_electrica.png" alt="Schema" width="500"/>
 
 ## Functionalitate montaj
 
