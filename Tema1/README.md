@@ -31,4 +31,4 @@ Scopul acestei lucrari este de a simula o statie de incarcare pentru un vehicul 
 
 ## Schema electrica
 
-<img src="poze/schema_electrica.png" alt="Schema-electrica" width="600"/>
+<img src="poze/schema_electrica.png" alt="Schema-electrica" width="800"/>
