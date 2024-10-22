@@ -22,3 +22,9 @@ Scopul acestei lucrari este de a simula o statie de incarcare pentru un vehicul 
 - <b>2 x Rezistoare 1kΩ<b>
 - <b>Breadbord<b>
 - <b>Linii de legatura<b>
+
+## Poze ale setup-ului fizic
+
+![Poza1](poze/poza_setup1.png)
+
+![Poza2](poze/poza_setup2.png)
