@@ -43,13 +43,13 @@ La sfarsitul fiecarei runde, se va afisa in terminal cate cuvinte au fost scrise
 
 ## Poze ale setup-ului fizic
 
-<img src="Tema2/resurse/poze/poza_setup1.jpg" alt="Poza1" width="450"/>
-<img src="Tema2/resurse/poze/poza_setup2.jpg" alt="Poza2" width="450"/>
+<img src="resurse/poze/poza_setup1.jpg" alt="Poza1" width="450"/>
+<img src="resurse/poze/poza_setup2.jpg" alt="Poza2" width="450"/>
 
 ## Schema electrica
 
-<img src="Tema2/resurse/poze/schema_electrica.png" alt="Schema" width="450"/>
-<img src="Tema2/resurse/poze/schema.png" alt="Schema-electrica" width="450"/>
+<img src="resurse/poze/schema_electrica.png" alt="Schema" width="450"/>
+<img src="resurse/poze/schema.png" alt="Schema-electrica" width="450"/>
 
 ## Functionalitate montaj
 
