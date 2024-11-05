@@ -31,12 +31,14 @@ unsigned long wordStartTime;
 unsigned long lastButtonPress = 0;
 const unsigned long debounceDelay = 500;
 
+// Function to set the color of the RGB LED based on the provided RGB values
 void setLedColor(int red, int green, int blue) {
     analogWrite(ledRgbRedPin, red);
     analogWrite(ledRgbGreenPin, green);
     analogWrite(ledRgbBluePin, blue);
 }
 
+// Function to display a countdown from 3 to 1 before starting the round
 void countdownDisplay() {
     for (int i = 3; i > 0; i--) {
         Serial.println(i);
@@ -48,6 +50,7 @@ void countdownDisplay() {
     setLedColor(0, 255, 0);
 }
 
+// Function to randomly select and display the next word for the user to type
 void displayNextWord() {
     int randomIndex = random(wordCount);
     currentWord = wordList[randomIndex];
@@ -58,6 +61,7 @@ void displayNextWord() {
     wordStartTime = millis();
 }
 
+// Function to check the user's input against the current word and update the score
 void checkUserInput() {
     if (Serial.available()) {
         char inputChar = Serial.read();
@@ -82,6 +86,7 @@ void checkUserInput() {
     }
 }
 
+// Function to initialize a new round of the game, resetting relevant variables
 void startNewRound() {
     currentState = RUNNING;
     correctWordsCount = 0;
@@ -91,12 +96,14 @@ void startNewRound() {
     startTime = millis();
 }
 
+// Function to stop the current round and return to the IDLE state
 void stopRound() {
     currentState = IDLE;
     Serial.println("Round stopped!");
     setLedColor(255, 255, 255);
 }
 
+// Function to conclude the round, displaying the user's score and resetting the state
 void endRound() {
     currentState = IDLE;
     Serial.print("Round ended! You scored: ");
@@ -104,6 +111,7 @@ void endRound() {
     setLedColor(255, 255, 255);
 }
 
+// Function to handle the start/stop button press with debouncing logic
 void handleStartStop() {
     if (millis() - lastButtonPress > debounceDelay) {
         startStopPressed = true;
@@ -111,6 +119,7 @@ void handleStartStop() {
     }
 }
 
+// Function to handle the difficulty button press and cycle through difficulty levels
 void handleDifficulty() {
     if (currentState == IDLE) {
         if (millis() - lastButtonPress > debounceDelay) {
@@ -127,6 +136,7 @@ void handleDifficulty() {
     }
 }
 
+// Arduino setup function to initialize serial communication and pin modes
 void setup() {
     Serial.begin(9600);
     pinMode(buttonStartStopPin, INPUT_PULLUP);
@@ -139,6 +149,7 @@ void setup() {
     setLedColor(255, 255, 255);
 }
 
+// Main loop function that manages the game state and user interactions
 void loop() {
     if (startStopPressed) {
         startStopPressed = false;
