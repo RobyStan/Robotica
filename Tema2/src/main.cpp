@@ -3,9 +3,9 @@
 const int buttonStartStopPin = 3;
 const int buttonDifficultyPin = 2;
 
-const int ledRGBBluePin = 4;
-const int ledRGBGreenPin = 5; 
-const int ledRGBRedPin = 6;
+const int ledRgbBluePin = 4;
+const int ledRgbGreenPin = 5;
+const int ledRgbRedPin = 6;
 
 enum GameState { IDLE, RUNNING };
 GameState currentState = IDLE;
@@ -31,21 +31,21 @@ unsigned long wordStartTime;
 unsigned long lastButtonPress = 0;
 const unsigned long debounceDelay = 500;
 
-void setLEDColor(int red, int green, int blue) {
-    analogWrite(ledRGBRedPin, red);
-    analogWrite(ledRGBGreenPin, green);
-    analogWrite(ledRGBBluePin, blue);
+void setLedColor(int red, int green, int blue) {
+    analogWrite(ledRgbRedPin, red);
+    analogWrite(ledRgbGreenPin, green);
+    analogWrite(ledRgbBluePin, blue);
 }
 
 void countdownDisplay() {
     for (int i = 3; i > 0; i--) {
         Serial.println(i);
-        setLEDColor(0, 0, 0);
+        setLedColor(0, 0, 0);
         delay(500);
-        setLEDColor(255, 255, 255);
+        setLedColor(255, 255, 255);
         delay(500);
     }
-    setLEDColor(0, 255, 0);
+    setLedColor(0, 255, 0);
 }
 
 void displayNextWord() {
@@ -61,7 +61,7 @@ void displayNextWord() {
 void checkUserInput() {
     if (Serial.available()) {
         char inputChar = Serial.read();
-        if (inputChar == 8) { 
+        if (inputChar == 8) {
             if (userInput.length() > 0) {
                 userInput.remove(userInput.length() - 1);
                 Serial.print("\b \b");
@@ -71,12 +71,12 @@ void checkUserInput() {
         userInput += inputChar;
 
         if (userInput.length() == currentWord.length()) {
-            if (userInput.equals(currentWord)) {    
+            if (userInput.equals(currentWord)) {
                 correctWordsCount++;
                 newWordReady = true;
-                setLEDColor(0, 255, 0);
+                setLedColor(0, 255, 0);
             } else {
-                setLEDColor(255, 0, 0); 
+                setLedColor(255, 0, 0);
             }
         }
     }
@@ -94,14 +94,14 @@ void startNewRound() {
 void stopRound() {
     currentState = IDLE;
     Serial.println("Round stopped!");
-    setLEDColor(255, 255, 255);
+    setLedColor(255, 255, 255);
 }
 
 void endRound() {
     currentState = IDLE;
     Serial.print("Round ended! You scored: ");
     Serial.println(correctWordsCount);
-    setLEDColor(255, 255, 255);
+    setLedColor(255, 255, 255);
 }
 
 void handleStartStop() {
@@ -131,12 +131,12 @@ void setup() {
     Serial.begin(9600);
     pinMode(buttonStartStopPin, INPUT_PULLUP);
     pinMode(buttonDifficultyPin, INPUT_PULLUP);
-    pinMode(ledRGBGreenPin, OUTPUT);
-    pinMode(ledRGBBluePin, OUTPUT);
-    pinMode(ledRGBRedPin, OUTPUT);
+    pinMode(ledRgbGreenPin, OUTPUT);
+    pinMode(ledRgbBluePin, OUTPUT);
+    pinMode(ledRgbRedPin, OUTPUT);
     attachInterrupt(digitalPinToInterrupt(buttonStartStopPin), handleStartStop, FALLING);
     attachInterrupt(digitalPinToInterrupt(buttonDifficultyPin), handleDifficulty, FALLING);
-    setLEDColor(255, 255, 255);
+    setLedColor(255, 255, 255);
 }
 
 void loop() {
